@@ -78,20 +78,20 @@ func FormatString(v *fastjson.Value) string {
 // NewCfastJSON -
 func NewCfastJSON(fjs *fastjson.Value) *Cfastjson {
 	return &Cfastjson{
-		Value: *fjs,
+		Value: fjs,
 	}
 }
 
 // NewCfastJSONObj -
 func NewCfastJSONObj() *Cfastjson {
 	return &Cfastjson{
-		Value: *fastjson.MustParse("{}"),
+		Value: fastjson.MustParse("{}"),
 	}
 }
 
 // NewCfastJSONArray -
 func NewCfastJSONArray() *Cfastjson {
 	return &Cfastjson{
-		Value: *fastjson.MustParse("[]"),
+		Value: fastjson.MustParse("[]"),
 	}
 }

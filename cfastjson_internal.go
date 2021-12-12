@@ -16,7 +16,7 @@ import (
 
 // Cfastjson -
 type Cfastjson struct {
-	fastjson.Value
+	*fastjson.Value
 }
 
 func trim(s string) string {

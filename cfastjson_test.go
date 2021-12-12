@@ -8,8 +8,10 @@ package cfastjson_test
 
 import (
 	"fmt"
-	"mirokusan/cfastjson"
 	"testing"
+	"time"
+
+	"github.com/mirokusan/cfastjson"
 
 	"github.com/valyala/fastjson"
 )
@@ -92,6 +94,26 @@ func TestA_3(t *testing.T) {
 	fmt.Println(fjs.String())
 
 	fmt.Printf("%s", fjs.GetStringBytes())
+}
+
+//
+func TestA_4(t *testing.T) {
+	str := `{"key1": 1, "key2": "val2"}`
+	fjs, e := fastjson.Parse(str)
+	if e != nil {
+		fmt.Println(e)
+	} else {
+		fmt.Println(fjs.String())
+	}
+
+	cfjs := cfastjson.NewCfastJSON(fjs)
+	cfjs.Set("key3", time.Now().String())
+	fmt.Println(fjs.String())
+	fmt.Println(cfjs.String())
+
+	fmt.Printf("%s\n", cfjs.Get("key2").GetStringBytes())
+
+	fmt.Println(cfjs.Value.Get("key3").String())
 }
 
 func Benchmark_cfastjson(b *testing.B) {
