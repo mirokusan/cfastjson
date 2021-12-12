@@ -116,6 +116,21 @@ func TestA_4(t *testing.T) {
 	fmt.Println(cfjs.Value.Get("key3").String())
 }
 
+//
+func TestA_5(t *testing.T) {
+	jsArray := cfastjson.NewCfastJSONArray()
+	jsArray.Append("1")
+	jsArray.Append(2)
+	jsArray.Append("3")
+	jsArray.Append("a")
+	jsArray.Append("c")
+	jsArray.Append("t2")
+
+	fmt.Println(jsArray.FormatString())
+	fmt.Println(jsArray.String())
+	fmt.Println(jsArray.Type())
+}
+
 func Benchmark_cfastjson(b *testing.B) {
 
 }
